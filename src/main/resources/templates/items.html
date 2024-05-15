@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:th = "http://www.thymeleaf.org">
+    <head>
+        <title>Inventory</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+         
+    </head>
+    <body>
+        <nav class="navbar">
+    <div class="navbar__container">
+        <a href="index.html" id="navbar__logo"><i class="fas fa-gem"></i><span>StockSenseInventory</span></a>
+        <div class="navbar__toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <ul class="navbar__menu">
+            <li class="navbar__item">
+                <a href="/static" class="navbar__links"></a>
+            </li>
+            <li class="navbar__item">
+                <a th:href="@{/}" class="navbar__links">Logout</a>
+            </li>
+            <li class="navbar__item">
+                <a href="/register.html" class="navbar__links">Register</a>
+            </li>
+            <li class="navbar__btn">
+                <a href="/about.html" class="navbar__links button">About Us</a>
+            </li>
+            <li class="navbar__btn">
+                <a href="/contact.html" class="navbar__links button">Contact Us</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+        
+         <div class="container">
+            <div class ="row">
+                <div><h1>List of Items</h1></div>
+                <div class="row">
+                    <div class="col-lg-3">
+                        <a th:href ="@{/items/new}" class = "btn btn-success"> Add Item</a>
+                    </div>
+                     <table class="table table-dark">
+                        <thead>
+                            <tr>
+                                <th>Item ID</th>
+                                <th>Item Name</th>
+                                <th>Description</th>
+                                <th>Category ID</th>
+                                <th>Quantity</th>
+                                <th>Location</th>
+                                <th colspan="2" style="text-align: center">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each ="item: ${items}">
+                                <td th:text ="${item.itemId}"></td>
+                                <td th:text ="${item.itemName}"></td>
+                                <td th:text ="${item.description}"></td>
+                                <td th:text ="${item.category}"></td>
+                                <td th:text ="${item.quantity}"></td>
+                                <td th:text ="${item.location}"></td>
+                                <td>
+                                    <a href="#" class="btn btn-success" method="post">UPDATE</a>
+                                </td>
+                                <td>
+                                    <a href="#" class="btn btn-success">DELETE</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+    </body>
+</html>
