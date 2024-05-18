@@ -203,7 +203,7 @@
 
 }
 
-.main__container {
+/*.main__container {
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
@@ -215,7 +215,7 @@
     width: 100%;
     max-width: 1300px;
     padding: 0 50px;
-}
+}*/
 
 .main__content {
     margin-bottom: 3rem;

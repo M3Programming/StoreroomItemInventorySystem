@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 /**
@@ -40,6 +41,31 @@ public class ItemController {
      @PostMapping("/items")
     public String saveStudent(@ModelAttribute("items")Item item){
         itemService.saveItem(item);
+        return "redirect:/items";
+    }
+    
+     @GetMapping("/items/edit/{id}")
+    public String editStudent(@PathVariable Long id, Model model){
+        model.addAttribute("items", itemService.getItembyId(id));
+        return "edit_item";
+    }
+    
+    @PostMapping("/items/{id}" )
+    public String updateStudent(@PathVariable Long id,
+            @ModelAttribute("items") Item item, Model model){
+        Item existingItem = itemService.getItembyId(id);
+        existingItem.setItemName(item.getItemName());
+        existingItem.setCategory(item.getCategory());
+        existingItem.setDescription(item.getDescription());
+        existingItem.setLocation(item.getLocation());
+        existingItem.setQuantity(item.getQuantity());
+        itemService.updateItem(existingItem);
+        return "redirect:/items";
+        
+    }
+    @GetMapping("items/{id}")
+    public String deleteStudent(@PathVariable Long id){
+      itemService.deleteItembyId(id);
         return "redirect:/items";
     }
 }

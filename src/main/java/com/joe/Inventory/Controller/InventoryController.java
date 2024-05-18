@@ -4,10 +4,8 @@
  */
 package com.joe.Inventory.Controller;
 
-import com.joe.Inventory.Service.ItemService;
 import com.joe.Inventory.Service.UserDetailService;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 /**
@@ -27,6 +25,10 @@ public class InventoryController {
      @GetMapping("")
     public String index() {             
         return ("index");
+    }
+    @GetMapping("/register")
+     public String register() {             
+        return ("register.html");
     }
     
    @GetMapping("/login")

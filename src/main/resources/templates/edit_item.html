@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <title>Inventory System</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    </head>
+     <body>
+        <div class = "container">
+            <div class ="row">
+                <div class ="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+                    <h1 class ="text-center">Add new Item</h1>   
+                    <div class="card-body">
+                        <form th:action="@{/items/{id} (id=${items.itemId})}" th:object="${items}" method ="post">
+                             <div class ="mb-3">
+                                <label class="form-label">Item Name: </label>
+                                <input type="text" 
+                                       name="itemName" 
+                                       class="form-control" 
+                                       th:field="*{itemName}" 
+                                       placeholder= "Item Name"/>
+                            </div>
+                            <div class ="mb-3">
+                                <label class="form-label">Description: </label>
+                                <input type="text" 
+                                       name="description" 
+                                       class="form-control" 
+                                       th:field="*{description}"
+                                       placeholder= "Description"/>
+                            </div>  
+                            <div class ="mb-3">
+                                <label class="form-label">Category: </label>
+                                <input type="text" 
+                                       name="category" 
+                                       class="form-control"
+                                       th:field="*{category}"
+                                       placeholder= "Category"/>
+                            </div>
+                            <div class ="mb-3">
+                                <label class="form-label">Quantity: </label>
+                                <input type="number" 
+                                       name="quantity" 
+                                       class="form-control" 
+                                       th:value="*{quantity}"
+                                       placeholder= "Quantity"/>
+                            </div>
+                            <div class ="mb-3">
+                                <label class="form-label">Location: </label>
+                                <input 
+                                    type="text" 
+                                    name="location" 
+                                    class="form-control" 
+                                    th:field="*{location}"
+                                    placeholder= "Location"
+                                    />
+                            </div>
+                            <div class ="box-footer">
+                                <button type="submit" class="btn btn-primary">Update Item</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
