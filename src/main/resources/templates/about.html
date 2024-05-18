@@ -14,7 +14,7 @@
 <!-- Navbar Section -->
 <nav class="navbar">
     <div class="navbar__container">
-        <a href="/static" id="navbar__logo"><i class="fas fa-gem"></i><span>StockSenseInventory</span></a>
+        <a th:href ="@{/}" id="navbar__logo"><i class="fas fa-gem"></i><span>StockSenseInventory</span></a>
         <div class="navbar__toggle" id="mobile-menu">
             <span class="bar"></span>
             <span class="bar"></span>
@@ -22,19 +22,19 @@
         </div>
         <ul class="navbar__menu">
             <li class="navbar__item">
-                <a href="/static" class="navbar__links">Home</a>
+                <a href="/static" class="navbar__links"></a>
             </li>
             <li class="navbar__item">
-                <a href="/login.html" class="navbar__links">Login</a>
+                <a th:href ="@{/login}" class="navbar__links">Login</a>
             </li>
             <li class="navbar__item">
-                <a href="/register.html" class="navbar__links">Register</a>
+                <a th:href ="@{/register/new}" class="navbar__links">Register</a>
             </li>
             <li class="navbar__btn">
-                <a href="/about.html" class="navbar__links button">About Us</a>
+                <a th:href ="@{/about}" class="navbar__links button">About Us</a>
             </li>
             <li class="navbar__btn">
-                <a href="/contact.html" class="navbar__links button">Contact Us</a>
+                <a th:href ="@{/contact}" class="navbar__links button">Contact Us</a>
             </li>
         </ul>
     </div>

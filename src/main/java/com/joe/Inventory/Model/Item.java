@@ -21,8 +21,8 @@ public class Item implements Serializable {
     @Column(name = "description")
     private String description;
 
-   @Column(name = "category_id")
-    private int category;
+   @Column(name = "category")
+    private String category;
 
     @Column(name = "quantity")
     private int quantity;
@@ -36,7 +36,7 @@ public class Item implements Serializable {
         this.location = "";
     }
 
-    public Item(String itemName, String description, int category, int quantity, String location) {
+    public Item(String itemName, String description, String category, int quantity, String location) {
         this.itemName = itemName;
         this.description = description;
         this.category = category;
@@ -57,7 +57,7 @@ public class Item implements Serializable {
         return description;
     }
 
-    public int getCategory() {
+    public String getCategory() {
         return category;
     }
 
@@ -82,7 +82,7 @@ public class Item implements Serializable {
         this.description = description;
     }
 
-    public void setCategory(int category) {
+    public void setCategory(String category) {
         this.category = category;
     }
 

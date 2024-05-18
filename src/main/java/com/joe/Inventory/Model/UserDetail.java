@@ -21,25 +21,8 @@ import java.util.Date;
 @Table(name="user_info")
 public class UserDetail implements Serializable{
 private static final long serialVersionUID = 1L;
-    public UserDetail() {
-        
-    }
 
-    public UserDetail(String username, String password, String email, String firstName, String lastName, String role, Date createdAt, Date updatedAt) {
-        this.username = username;
-        this.password = password;
-        this.email = email;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.role = role;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
-    }
-    
-    
-    
-    
-     @Id
+ @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id", nullable=false)
     private int userId;
@@ -50,25 +33,31 @@ private static final long serialVersionUID = 1L;
     @Column(name = "password", nullable=false)
     private String password;
 
-    @Column(name = "email", nullable=false)
-    private String email;
-
     @Column(name = "first_name", nullable=false)
     private String firstName;
 
     @Column(name = "last_name", nullable=false)
     private String lastName;
 
-    @Column(name = "role", nullable=false)
-    private String role;
 
-    @Column(name = "created_at", nullable=false)
-    private Date createdAt;
+    public UserDetail() {
+        
+    }
 
-    @Column(name = "updated_at", nullable=false)
-    private Date updatedAt;
+    public UserDetail(String username, String password, String firstName, String lastName) {
+        this.username = username;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
 
-   
+    public UserDetail(int userId, String username, String password, String firstName, String lastName) {
+        this.userId = userId;
+        this.username = username;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
 
     public int getUserId() {
         return userId;
@@ -94,14 +83,6 @@ private static final long serialVersionUID = 1L;
         this.password = password;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public String getFirstName() {
         return firstName;
     }
@@ -118,29 +99,10 @@ private static final long serialVersionUID = 1L;
         this.lastName = lastName;
     }
 
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
-
-    public Date getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public Date getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(Date updatedAt) {
-        this.updatedAt = updatedAt;
-    }
+    
+    
+    
+    
     
     
 }
